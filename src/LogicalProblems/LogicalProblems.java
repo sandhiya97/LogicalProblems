@@ -1,17 +1,37 @@
 package LogicalProblems;
-
-public class LogicalProblems {
-	 public static void main(String[] args) {
-         System.out.println("Fibonacci Series");
-         int n1=0,n2=1,n3,i,count=10;    
-         System.out.print(n1+" "+n2);//printing 0 and 1    
-            
-         for(i=2;i<count;++i)//loop starts from 2 because 0 and 1 are already printed    
-         {    
-          n3=n1+n2;    
-          System.out.print(" "+n3);    
-          n1=n2;    
-          n2=n3;    
-         }    
-     }
-}
+import java.util.Scanner;  
+public class LogicalProblems
+{  
+//function that checks if the given number is perfect or not  
+static long isPerfect(long num)  
+{  
+//variable stores the sum      
+long sum=0;  
+//executes until the condition becomes false  
+for(int i=1; i <= num/2; i++)  
+{  
+if(num % i == 0)  
+{  
+//calculates the sum of factors  
+sum=sum + i;  
+} //end of if  
+}  //end of for  
+//returns the sum of factors  
+return sum;   
+} //end of method  
+public static void main(String args[])    
+{  
+long number, s;  
+Scanner sc=new Scanner(System.in);         
+System.out.print("Enter the number: ");  
+//reads a number from the user  
+number=sc.nextLong();  
+//calling the function  
+s = isPerfect(number);  
+//compares sum with the number  
+if(s==number)  
+System.out.println(number+" is a perfect number");  
+else  
+System.out.println(number+" is not a perfect number");   
+}   
+}  
