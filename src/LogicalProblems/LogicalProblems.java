@@ -3,18 +3,19 @@ import java.util.Scanner;
 public class LogicalProblems {
 
     public static void main(String args[]) {
-    	int number = 987654, reverse = 0;  
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the number: ");
-        number = sc.nextInt();
-        while(number != 0)   
-        {  
-        int remainder = number % 10;  
-        reverse = reverse * 10 + remainder;  
-        number = number/10;  
-        }  
-        System.out.println("The reverse of the given number is: " + reverse);  
-        
+    	char[] chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789".toCharArray();
+		int max=100000000;
+		int random=(int) (Math.random()*max);	
+		StringBuffer sb=new StringBuffer();
+		
+		while (random>0)
+		{
+			sb.append(chars[random % chars.length]);
+			random /= chars.length;
+		}
+
+		String couponCode=sb.toString();
+		System.out.println("Coupon Code: "+couponCode);	
         
     }
 }
